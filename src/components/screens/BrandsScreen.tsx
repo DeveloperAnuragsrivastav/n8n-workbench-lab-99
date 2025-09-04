@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloud, faClipboard, faRobot, faWrench } from "@fortawesome/free-solid-svg-icons";
@@ -20,6 +21,9 @@ interface BrandsScreenProps {
 
 export const BrandsScreen = ({ onEmailSubmit }: BrandsScreenProps) => {
   const [email, setEmail] = useState("");
+  const [showOTP, setShowOTP] = useState(false);
+  const [otp, setOtp] = useState("");
+  const [otpError, setOtpError] = useState("");
 
   const brands = [
     { name: "HP", logo: hpLogo },
@@ -58,7 +62,16 @@ export const BrandsScreen = ({ onEmailSubmit }: BrandsScreenProps) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
+      setShowOTP(true);
+    }
+  };
+
+  const handleOTPSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (otp === "123") {
       onEmailSubmit(email);
+    } else {
+      setOtpError("Invalid OTP. Please enter 123");
     }
   };
 
@@ -92,27 +105,83 @@ export const BrandsScreen = ({ onEmailSubmit }: BrandsScreenProps) => {
             {/* Right Side - Email Form */}
             <div className="space-y-6">
             <Card className="card-glow p-6">
-              <h3 className="text-2xl font-bold mb-4 text-center">
-                Enter Your Email to Begin Journey
-              </h3>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <Input
-                  type="email"
-                  placeholder="your@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="h-12 text-base"
-                  required
-                />
-                <Button 
-                  type="submit" 
-                  variant="hero" 
-                  size="lg" 
-                  className="w-full"
-                >
-                  Start Your Journey
-                </Button>
-              </form>
+              {!showOTP ? (
+                <>
+                  <h3 className="text-2xl font-bold mb-4 text-center">
+                    Enter Your Email to Begin Journey
+                  </h3>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <Input
+                      type="email"
+                      placeholder="your@email.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="h-12 text-base"
+                      required
+                    />
+                    <Button 
+                      type="submit" 
+                      variant="hero" 
+                      size="lg" 
+                      className="w-full"
+                    >
+                      Start Your Journey
+                    </Button>
+                  </form>
+                </>
+              ) : (
+                <>
+                  <h3 className="text-2xl font-bold mb-4 text-center">
+                    Enter OTP to Verify
+                  </h3>
+                  <p className="text-muted-foreground text-center mb-6">
+                    We've sent a verification code to {email}
+                  </p>
+                  <form onSubmit={handleOTPSubmit} className="space-y-4">
+                    <div className="flex justify-center">
+                      <InputOTP
+                        maxLength={3}
+                        value={otp}
+                        onChange={(value) => {
+                          setOtp(value);
+                          setOtpError("");
+                        }}
+                      >
+                        <InputOTPGroup>
+                          <InputOTPSlot index={0} />
+                          <InputOTPSlot index={1} />
+                          <InputOTPSlot index={2} />
+                        </InputOTPGroup>
+                      </InputOTP>
+                    </div>
+                    {otpError && (
+                      <p className="text-destructive text-sm text-center">{otpError}</p>
+                    )}
+                    <Button 
+                      type="submit" 
+                      variant="hero" 
+                      size="lg" 
+                      className="w-full"
+                      disabled={otp.length !== 3}
+                    >
+                      Verify & Continue
+                    </Button>
+                    <Button 
+                      type="button" 
+                      variant="outline" 
+                      size="lg" 
+                      className="w-full"
+                      onClick={() => {
+                        setShowOTP(false);
+                        setOtp("");
+                        setOtpError("");
+                      }}
+                    >
+                      Back to Email
+                    </Button>
+                  </form>
+                </>
+              )}
             </Card>
             </div>
           </div>
