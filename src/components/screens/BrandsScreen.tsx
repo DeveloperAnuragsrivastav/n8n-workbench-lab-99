@@ -147,10 +147,10 @@ export const BrandsScreen = ({ onEmailSubmit }: BrandsScreenProps) => {
                           setOtpError("");
                         }}
                       >
-                        <InputOTPGroup>
-                          <InputOTPSlot index={0} />
-                          <InputOTPSlot index={1} />
-                          <InputOTPSlot index={2} />
+                        <InputOTPGroup className="gap-2">
+                          <InputOTPSlot index={0} className="w-12 h-12 text-lg font-semibold border-2 border-input bg-background" />
+                          <InputOTPSlot index={1} className="w-12 h-12 text-lg font-semibold border-2 border-input bg-background" />
+                          <InputOTPSlot index={2} className="w-12 h-12 text-lg font-semibold border-2 border-input bg-background" />
                         </InputOTPGroup>
                       </InputOTP>
                     </div>
