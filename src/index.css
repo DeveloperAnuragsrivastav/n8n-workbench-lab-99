@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional Workbench Design System - Dark theme with yellow accents */
+
+@layer base {
+  :root {
+    /* Core theme colors */
+    --background: 220 13% 9%;
+    --foreground: 210 40% 98%;
+    
+    /* Card colors */
+    --card: 220 13% 12%;
+    --card-foreground: 210 40% 98%;
+    
+    /* Navigation & Header */
+    --nav-background: 220 13% 6%;
+    --nav-border: 220 13% 15%;
+    
+    /* Brand colors */
+    --brand-yellow: 45 96% 64%;
+    --brand-yellow-dark: 45 96% 54%;
+    --brand-blue: 217 91% 60%;
+    
+    /* Interactive elements */
+    --primary: 45 96% 64%;
+    --primary-foreground: 220 13% 9%;
+    --primary-hover: 45 96% 54%;
+    
+    --secondary: 220 13% 15%;
+    --secondary-foreground: 210 40% 98%;
+    --secondary-hover: 220 13% 18%;
+    
+    /* Accent colors */
+    --accent: 217 91% 60%;
+    --accent-foreground: 210 40% 98%;
+    --accent-hover: 217 91% 70%;
+    
+    /* Muted colors */
+    --muted: 220 13% 15%;
+    --muted-foreground: 215 20.2% 65.1%;
+    
+    /* Form elements */
+    --input: 220 13% 15%;
+    --input-foreground: 210 40% 98%;
+    --border: 220 13% 20%;
+    --ring: 45 96% 64%;
+    
+    /* States */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 13% 6%), hsl(220 13% 12%));
+    --gradient-card: linear-gradient(135deg, hsl(220 13% 12%), hsl(220 13% 15%));
+    --gradient-yellow: linear-gradient(135deg, hsl(45 96% 64%), hsl(45 96% 54%));
+    --gradient-blue: linear-gradient(135deg, hsl(217 91% 60%), hsl(217 91% 70%));
+    
+    /* Shadows */
+    --shadow-card: 0 4px 12px -2px hsl(220 13% 4% / 0.3);
+    --shadow-button: 0 2px 8px -1px hsl(45 96% 64% / 0.3);
+    --shadow-glow: 0 0 20px hsl(45 96% 64% / 0.1);
+    
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    --radius: 0.75rem;
+    
+    /* Sidebar specific */
+    --sidebar-background: 220 13% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 45 96% 64%;
+    --sidebar-primary-foreground: 220 13% 9%;
+    --sidebar-accent: 220 13% 12%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 13% 15%;
+    --sidebar-ring: 45 96% 64%;
+  }
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background: var(--gradient-hero);
+  }
+  
+  /* Hide scrollbars completely */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+}
+
+@layer components {
+  /* Hero button variant */
+  .btn-hero {
+    @apply bg-primary text-primary-foreground hover:bg-primary-hover;
+    @apply px-8 py-3 rounded-lg font-semibold text-lg;
+    @apply transform transition-all duration-300 hover:scale-105;
+    @apply shadow-lg hover:shadow-xl;
+    background: var(--gradient-yellow);
+    box-shadow: var(--shadow-button);
+  }
+  
+  /* Card with glow effect */
+  .card-glow {
+    @apply bg-card border-border;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+    border: 1px solid hsl(var(--border));
+  }
+  
+  .card-glow:hover {
+    box-shadow: var(--shadow-card), var(--shadow-glow);
+    transform: translateY(-2px);
+    transition: var(--transition-smooth);
+  }
+  
+  /* Navigation styles */
+  .nav-brand {
+    @apply text-2xl font-bold;
+    background: var(--gradient-yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Brand sections */
+  .brand-grid {
+    @apply grid grid-cols-2 md:grid-cols-4 gap-6;
+  }
+  
+  .brand-card {
+    @apply p-6 rounded-xl border transition-all duration-300;
+    @apply hover:scale-105 hover:shadow-lg;
+    background: var(--gradient-card);
+    border-color: hsl(var(--border));
+  }
+  
+  /* Dashboard specific */
+  .dashboard-sidebar {
+    @apply w-64 h-full bg-sidebar border-r border-sidebar-border;
+  }
+  
+  .dashboard-main {
+    @apply flex-1 p-4;
+  }
+}
