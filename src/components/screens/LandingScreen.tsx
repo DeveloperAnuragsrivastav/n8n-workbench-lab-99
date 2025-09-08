@@ -4,14 +4,13 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBolt, faShield, faBrain } from "@fortawesome/free-solid-svg-icons";
 import heroImage from "@/assets/hero-workbench.jpg";
-
 interface LandingScreenProps {
   onGetWorkbench: () => void;
 }
-
-export const LandingScreen = ({ onGetWorkbench }: LandingScreenProps) => {
-  return (
-    <div className="h-screen relative">
+export const LandingScreen = ({
+  onGetWorkbench
+}: LandingScreenProps) => {
+  return <div className="h-screen relative">
       <ScrollArea className="h-full">
         {/* Hero Section */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-8">
@@ -23,12 +22,7 @@ export const LandingScreen = ({ onGetWorkbench }: LandingScreenProps) => {
             Build, deploy, and scale AI applications with our comprehensive development platform. 
             Access powerful tools, templates, and LLMs in one unified workspace.
           </p>
-          <Button 
-            variant="hero" 
-            size="lg" 
-            onClick={onGetWorkbench}
-            className="mb-8"
-          >
+          <Button variant="hero" size="lg" onClick={onGetWorkbench} className="mb-8">
             Get Workbench
           </Button>
         </div>
@@ -36,22 +30,14 @@ export const LandingScreen = ({ onGetWorkbench }: LandingScreenProps) => {
         {/* Hero Image */}
         <div className="relative mb-8">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl blur-2xl"></div>
-          <img 
-            src={heroImage} 
-            alt="AI Workbench Interface" 
-            className="relative z-10 w-full max-w-4xl mx-auto rounded-2xl shadow-xl h-48 object-cover"
-          />
+          <img src={heroImage} alt="AI Workbench Interface" className="relative z-10 w-full max-w-4xl mx-auto rounded-2xl shadow-xl h-48 object-cover" />
         </div>
 
         {/* Feature Cards */}
         <div className="grid md:grid-cols-3 gap-6">
           <Card className="card-glow p-6 text-center">
-            <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 mx-auto">
-              <img 
-                src="/lovable-uploads/5c17d351-135e-4b40-9bd3-57bdcddcb1ae.png" 
-                alt="Lightning Fast" 
-                className="w-6 h-6 object-contain"
-              />
+            <div className="w-12 h-12 flex items-center justify-center mb-4 mx-auto rounded-3xl">
+              <img src="/lovable-uploads/5c17d351-135e-4b40-9bd3-57bdcddcb1ae.png" alt="Lightning Fast" className="w-6 h-6 object-contain" />
             </div>
             <h3 className="text-lg font-bold mb-3">Lightning Fast</h3>
             <p className="text-muted-foreground text-sm">
@@ -61,11 +47,7 @@ export const LandingScreen = ({ onGetWorkbench }: LandingScreenProps) => {
 
           <Card className="card-glow p-6 text-center">
             <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center mb-4 mx-auto">
-              <img 
-                src="/lovable-uploads/0b728d5b-230e-49b9-a30e-f64fbc48b852.png" 
-                alt="Enterprise Building" 
-                className="w-8 h-8 object-contain"
-              />
+              <img src="/lovable-uploads/0b728d5b-230e-49b9-a30e-f64fbc48b852.png" alt="Enterprise Building" className="w-8 h-8 object-contain" />
             </div>
             <h3 className="text-lg font-bold mb-3">Enterprise Ready</h3>
             <p className="text-muted-foreground text-sm">
@@ -93,6 +75,5 @@ export const LandingScreen = ({ onGetWorkbench }: LandingScreenProps) => {
           <div className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-gradient-to-tr from-accent/5 to-transparent rounded-full"></div>
         </div>
       </ScrollArea>
-    </div>
-  );
+    </div>;
 };
