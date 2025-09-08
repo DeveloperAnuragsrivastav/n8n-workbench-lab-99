@@ -47,7 +47,11 @@ export const LandingScreen = ({ onGetWorkbench }: LandingScreenProps) => {
         <div className="grid md:grid-cols-3 gap-6">
           <Card className="card-glow p-6 text-center">
             <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mb-4 mx-auto">
-              <FontAwesomeIcon icon={faBolt} className="w-6 h-6 text-primary-foreground" />
+              <img 
+                src="/lovable-uploads/5c17d351-135e-4b40-9bd3-57bdcddcb1ae.png" 
+                alt="Lightning Fast" 
+                className="w-6 h-6 object-contain"
+              />
             </div>
             <h3 className="text-lg font-bold mb-3">Lightning Fast</h3>
             <p className="text-muted-foreground text-sm">
