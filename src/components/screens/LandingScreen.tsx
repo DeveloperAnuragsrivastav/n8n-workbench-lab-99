@@ -46,7 +46,7 @@ export const LandingScreen = ({ onGetWorkbench }: LandingScreenProps) => {
         {/* Feature Cards */}
         <div className="grid md:grid-cols-3 gap-6">
           <Card className="card-glow p-6 text-center">
-            <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mb-4 mx-auto">
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 mx-auto">
               <img 
                 src="/lovable-uploads/5c17d351-135e-4b40-9bd3-57bdcddcb1ae.png" 
                 alt="Lightning Fast" 
