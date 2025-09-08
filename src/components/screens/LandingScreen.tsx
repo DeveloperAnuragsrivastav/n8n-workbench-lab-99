@@ -15,9 +15,7 @@ export const LandingScreen = ({
         {/* Hero Section */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-8">
           <div className="text-center mb-6">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            AI Workbench
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Gignaati Workbench</h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-6 max-w-3xl mx-auto">
             Build, deploy, and scale AI applications with our comprehensive development platform. 
             Access powerful tools, templates, and LLMs in one unified workspace.
