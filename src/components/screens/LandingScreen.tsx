@@ -57,7 +57,11 @@ export const LandingScreen = ({ onGetWorkbench }: LandingScreenProps) => {
 
           <Card className="card-glow p-6 text-center">
             <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center mb-4 mx-auto">
-              <FontAwesomeIcon icon={faShield} className="w-6 h-6 text-primary-foreground" />
+              <img 
+                src="/lovable-uploads/0b728d5b-230e-49b9-a30e-f64fbc48b852.png" 
+                alt="Enterprise Building" 
+                className="w-8 h-8 object-contain"
+              />
             </div>
             <h3 className="text-lg font-bold mb-3">Enterprise Ready</h3>
             <p className="text-muted-foreground text-sm">
