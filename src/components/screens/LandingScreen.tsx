@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBolt, faShield, faBrain } from "@fortawesome/free-solid-svg-icons";
-import heroImage from "@/assets/hero-workbench.jpg";
+import heroVideo from "@/assets/hero-video.mp4";
 interface LandingScreenProps {
   onGetWorkbench: () => void;
 }
@@ -30,7 +30,14 @@ export const LandingScreen = ({
         {/* Hero Image */}
         <div className="relative mb-8">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl blur-2xl"></div>
-          <img src={heroImage} alt="AI Workbench Interface" className="relative z-10 w-full max-w-4xl mx-auto rounded-2xl shadow-xl h-48 object-cover" />
+          <video 
+            src={heroVideo} 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="relative z-10 w-full max-w-4xl mx-auto rounded-2xl shadow-xl h-48 object-cover"
+          />
         </div>
 
         {/* Feature Cards */}
