@@ -38,7 +38,7 @@ export const LandingScreen = ({
           <Card className="card-glow p-8 text-center group hover:scale-105 transition-all duration-300 border-accent/20">
             <div className="relative mb-6">
               <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center mx-auto shadow-lg group-hover:shadow-accent/30 transition-all duration-300">
-                <img src="/lovable-uploads/5c17d351-135e-4b40-9bd3-57bdcddcb1ae.png" alt="Lightning Fast" className="w-8 h-8 object-contain" />
+                <img src="/lovable-uploads/5c17d351-135e-4b40-9bd3-57bdcddcb1ae.png" alt="Lightning Fast" className="w-8 h-8 object-contain mix-blend-multiply" />
               </div>
             </div>
             <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent">Lightning Fast</h3>
