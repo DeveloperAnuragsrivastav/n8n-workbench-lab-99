@@ -3,6 +3,7 @@ import { Navigation } from "@/components/Navigation";
 import { LandingScreen } from "@/components/screens/LandingScreen";
 import { BrandsScreen } from "@/components/screens/BrandsScreen";
 import { DemoScreen } from "@/components/screens/DemoScreen";
+import { SubscriptionScreen } from "@/components/screens/SubscriptionScreen";
 import { DashboardScreen } from "@/components/screens/DashboardScreen";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
@@ -50,8 +51,16 @@ const Index = () => {
   const handleStartJourney = () => {
     setCurrentScreen(4);
     toast({
+      title: "Choose Your Plan! ✨",
+      description: "Select a subscription to continue your journey.",
+    });
+  };
+
+  const handleSubscribe = (plan: string) => {
+    setCurrentScreen(5);
+    toast({
       title: "Welcome to Your Workbench! 🎉",
-      description: "You're now ready to build amazing AI applications.",
+      description: `${plan.charAt(0).toUpperCase() + plan.slice(1)} plan activated. You're now ready to build amazing AI applications.`,
     });
   };
 
@@ -64,6 +73,8 @@ const Index = () => {
       case 3:
         return <DemoScreen onStartJourney={handleStartJourney} />;
       case 4:
+        return <SubscriptionScreen onSubscribe={handleSubscribe} />;
+      case 5:
         return <DashboardScreen userEmail={userEmail} onBack={handleBack} />;
       default:
         return <LandingScreen onGetWorkbench={handleGetWorkbench} />;
@@ -78,7 +89,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {currentScreen !== 4 && (
+      {currentScreen !== 5 && (
         <Navigation 
           userEmail={userEmail} 
           showBackButton={currentScreen > 1}
