@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { UserMenu } from "@/components/UserMenu";
+import { HelpPopup } from "@/components/HelpPopup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
@@ -51,7 +52,10 @@ export const Navigation = ({ userEmail, showBackButton, onBack }: NavigationProp
           </a>
         </div>
         
-        <UserMenu userEmail={userEmail} />
+        <div className="flex items-center gap-4">
+          <HelpPopup />
+          <UserMenu userEmail={userEmail} />
+        </div>
       </div>
     </nav>
   );
